@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    background: #1a1a1a; /* Dark background for contrast */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif; /* Updated font */
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.header {
+    text-align: center;
+    margin: 20px 0;
+    z-index: 1;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ff7eb3, #65b2ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    transition: 0.3s ease-in-out;
+}
+
+.header h1:hover {
+    letter-spacing: 8px;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+
+.header h2 {
+    font-size: 1.5rem;
+    color: #ccc; /* Lighter color for the subheading */
+    margin: 5px 0;
+    letter-spacing: 2px;
+}
+
+.container {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 25px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    width: 400px; /* Fixed width for uniformity */
+    z-index: 1;
+}
+
+
+.toggle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ini menjaga elemen tetap sejajar secara vertikal */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #333; /* Contoh warna latar belakang */
+}
+
+.toggle-item:hover {
+    background-color: #444;
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.toggle-item span {
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-item img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 28px;
+    flex-shrink: 0; /* Prevents the switch from shrinking */
+    margin-left: 10px; /* Adds a little space between text and switch */
+}
+
+.toggle-switch input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #2196F3, #e91e63); /* Gradient from blue to pink */
+    transition: .4s;
+    border-radius: 20px; /* Rounded corners for slider */
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+}
+
+input:checked + .slider {
+    background: linear-gradient(90deg, #e91e63, #2196F3); /* Gradient when toggled on */
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px); /* Move knob to the right when toggled */
+}
+
+.button-container {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.button-container button {
+    background: linear-gradient(90deg, #ff7eb3, #65b2ff);
+    border: none;
+    padding: 12px 40px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.button-container button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+/* Copyright */
+.copyright {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #aaa; /* Lighter color for copyright */
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .container { width: 80%; }
+    .toggle-item { margin-bottom: 10px; }
+    .button-container { margin-top: 15px; }
+}
+
+/* Spinner loader style */
+.loader {
+  border: 6px solid #f3f3f3; /* Light grey */
+  border-top: 6px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
